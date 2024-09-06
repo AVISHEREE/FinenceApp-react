@@ -1,13 +1,24 @@
 import React from "react";
 
-const AddExpenses = () => {
+const AddExpenses = ({onClose}) => {
   return (
     <>
       <div className="w-screen flex justify-center items-center absolute bottom-1/4 pt-60">
         <div className="border bg-white border-slate-950 p-6 rounded-lg shadow-lg absolute top-0">
+        <button
+            onClick={onClose}
+            className="absolute top-0 right-0 text-red-500 hover:text-red-700 font-bold"
+          >
+            ❌
+          </button>
           <input
             type="text"
             placeholder="Enter your expense amount"
+            className="border border-gray-300 h-10 px-4 mb-4 w-full rounded-lg shadow-sm focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition duration-300"
+          />
+          <input
+            type="text"
+            placeholder="Enter expense description"
             className="border border-gray-300 h-10 px-4 mb-4 w-full rounded-lg shadow-sm focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition duration-300"
           />
           <select

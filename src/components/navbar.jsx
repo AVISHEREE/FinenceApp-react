@@ -5,6 +5,11 @@ import AddExpenses from "./addExpenses.jsx";
 const Navbar = () => {
   const [addExpensesToglleBtn, setaddExpensesToglleBtn] = useState(false)
   const changeAddExpensesState = ()=>{
+  const isSalary = localStorage.getItem('salary')
+  if(!isSalary ||isSalary<=0){
+    alert("please enter your Money")
+    return false
+  }
   setaddExpensesToglleBtn(!addExpensesToglleBtn);
   }
   return (
@@ -24,7 +29,7 @@ const Navbar = () => {
       <div className="rightNavbar">
         <img src="../src\assets\AppLogo.jpg" alt="" className="w-24 h-24 	background-image: none;" />
       </div>
-      {addExpensesToglleBtn?<AddExpenses />:null}
+      {addExpensesToglleBtn?<AddExpenses  onClose={() => setaddExpensesToglleBtn(false)} />:null}
     </div>
   );
 };
